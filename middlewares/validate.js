@@ -4,7 +4,11 @@ const {
   contactSchemaFavorite,
 } = require("../validation/contactsSchema");
 
-const { registerSchema, loginSchema } = require("../validation/authSchema.js");
+const {
+  registerSchema,
+  loginSchema,
+  emailSchema,
+} = require("../validation/authSchema.js");
 
 const validator = (Schema) => {
   return (req, res, next) => {
@@ -29,10 +33,13 @@ const validationRegister = validator(registerSchema);
 
 const validationLogin = validator(loginSchema);
 
+const validationEmail = validator(emailSchema);
+
 module.exports = {
   validation,
   validationRequired,
   validationFavorite,
   validationRegister,
   validationLogin,
+  validationEmail,
 };
